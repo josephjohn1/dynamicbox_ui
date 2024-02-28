@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.box {
+  border: 0.9px solid #c8c8c8;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: height 0.5s;
+  width: 300px;
+}
+.active-box {
+  border-color: red;
+}
+.options {
+  display: none;
+  margin-top: 10px;
+}
+
+label {
+  margin-right: 45px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+}
+.col {
+  display: block;
+}
+
+h1 {
+  font-size: 20px;
+}
+h1:before,
+h1:after {
+  position: absolute;
+  top: 9%;
+  overflow: hidden;
+  width: 50%;
+  height: 1px;
+  content: "\a0";
+  background-color: #c8c8c8;
+}
+h1:before {
+  margin-left: -50%;
+  text-align: right;
+}
+.color {
+  background-color: #ccc;
+}

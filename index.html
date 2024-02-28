@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const boxes = document.querySelectorAll(".box");
+
+        boxes.forEach((box) => {
+          const radioBtn = box.querySelector('input[type="radio"]');
+          const options = box.querySelector(".options");
+
+          box.addEventListener("click", function () {
+            // Reset other boxes
+            boxes.forEach((otherBox) => {
+              if (otherBox !== box) {
+                otherBox.style.height = "auto";
+                otherBox.querySelector(".options").style.display = "none";
+              }
+            });
+
+            // Toggle display of options
+            options.style.display = radioBtn.checked ? "block" : "none";
+
+            // Update box height
+            //box.style.height = radioBtn.checked ? `${box.scrollHeight}px` : 'auto';
+          });
+
+          radioBtn.addEventListener("change", function () {
+            // Reset other boxes
+            boxes.forEach((otherBox) => {
+              if (otherBox !== box) {
+                otherBox.style.height = "auto";
+                otherBox.classList.remove("active-box");
+                otherBox.querySelector(".options").style.display = "none";
+              }
+            });
+
+            // Toggle display of options
+            options.style.display = this.checked ? "block" : "none";
+
+            // Update box height and color
+            box.style.height = this.checked ? `${box.scrollHeight}px` : "auto";
+            box.classList.toggle("active-box", this.checked);
+          });
+        });
+      });
+    </script>
+    <title>Interactive Boxes</title>
+  </head>
+  <body>
+    <h1>YAY! It's BOGO</h1>
+    <div class="box">
+      <input type="radio" id="topBox" name="boxType" />
+      <label for="topBox">1 Unit</label>
+      <div class="options">
+        <label for="size1">Size</label>
+        <label for="color1">Color</label>
+        <div class="col">
+          <select id="size1">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <select id="color1">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <input type="radio" id="middleBox" name="boxType" />
+      <label for="middleBox">2 Unit</label>
+      <div class="options">
+        <label for="size2">Size</label>
+        <label for="color2">Color</label>
+        <div class="col">
+          <select id="size2">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <select id="color2">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <input type="radio" id="bottomBox" name="boxType" />
+      <label for="bottomBox">3 Unit</label>
+      <div class="options">
+        <label for="size3">Size</label>
+        <label for="color3">Color</label>
+        <div class="col">
+          <select id="size3">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <select id="color3">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
